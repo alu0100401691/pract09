@@ -41,4 +41,12 @@ describe Bibliografia do
    it 'Debe existir uno o más números ISBN' do
       expect(@libro1.isbn).not_to be_empty
    end
+   
+   it 'Metodo para obtener el listado de autores' do
+      expect(@libro1.respond_to? :getAutores)
+   end
+   
+   it "Se debe mostrar por la consola la referencia formateada" do
+      expect(@libro1.respond_to? :to_s)  
+   end
 end
