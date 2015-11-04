@@ -42,11 +42,35 @@ describe Bibliografia do
       expect(@libro1.isbn).not_to be_empty
    end
    
-   it 'Metodo para obtener el listado de autores' do
-      expect(@libro1.respond_to? :getAutores)
+   it 'Existe un método para obtener el listado de autores' do
+      expect(@libro1.getAutores).to eq(["Dave Thomas", "Andy Hunt", "Chad Fowler"])
    end
    
-   it "Se debe mostrar por la consola la referencia formateada" do
-      expect(@libro1.respond_to? :to_s)  
+   it 'Existe un método para obtener el título' do
+      expect(@libro1.getTitulo).to eq("Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide")
+   end
+   
+   it 'Existe un método para obtener la serie' do
+      expect(@libro1.getSerie).to eq("(The Facets of Ruby)")
+   end
+   
+   it 'Existe un método para obtener la editorial' do
+      expect(@libro1.getEditorial).to eq("Pragmatic Bookshelf")
+   end
+   
+   it 'Existe un método para obtener el número de edición' do
+      expect(@libro1.getEdicion).to eq("4 edition")
+   end
+   
+   it 'Existe un método para obtener la fecha de publicación' do
+      expect(@libro1.getFecha).to eq("(July 7, 2013)")
+   end
+   
+   it 'Existe un método para obtener el listado de ISBN' do
+      expect(@libro1.getISBN).to eq(["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"])
+   end
+   
+   it 'Existe un método para obtener la referencia formateada' do
+   #   expect(@libro1.formateada).to eq()  
    end
 end
