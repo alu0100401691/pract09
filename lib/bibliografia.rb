@@ -6,7 +6,7 @@ module Bibliografia
     
         attr_reader :autores, :titulo, :serie, :editorial, :edicion, :fecha, :isbn
       
-        def initialize(autores,titulo,serie = "",editorial,edicion,fecha,isbn)
+        def initialize(autores,titulo,serie = nil,editorial,edicion,fecha,isbn)
               @autores = autores
               @titulo = titulo
               @serie = serie
@@ -15,5 +15,29 @@ module Bibliografia
               @fecha = fecha
               @isbn = isbn
         end
+        
+        def getAutores
+            return @autores
+        end
+        def getTitulo
+            return @titulo
+        end
+        def getSerie
+            return @serie
+        end
+        def getEditorial
+            return @editorial
+        end
+        def getEdicion
+            return @edicion
+        end
+        def getFecha
+            return @fecha
+        end
+        
+        def getISBN
+            return @isbn
+        end
+        
     end
 end
