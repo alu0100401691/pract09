@@ -39,5 +39,10 @@ module Bibliografia
             return @isbn
         end
         
+        def formateada
+            out = "#{@autores}" + ", " + "#{@titulo}" + ", " + "#{@edicion}" + ". " + "#{@editorial}" + ", " + "#{@fecha}"
+            return out
+        end
+        
     end
 end

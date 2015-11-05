@@ -71,6 +71,6 @@ describe Bibliografia do
    end
    
    it 'Existe un método para obtener la referencia formateada' do
-      expect(@libro1.formateada).to eq("D. Thomas, A. Hunt, C. Fowler, Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide, 4 edition. Pragmatic Bookshelf, (July 7, 2013)")  
+      expect(@libro1.formateada).to eq("[\"Dave Thomas\", \"Andy Hunt\", \"Chad Fowler\"], Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide, 4 edition. Pragmatic Bookshelf, (July 7, 2013)")  
    end
 end
