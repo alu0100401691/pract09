@@ -75,4 +75,10 @@ describe Bibliografia do
         expect(@libro1.to_s).to eq("[\"Dave Thomas\", \"Andy Hunt\", \"Chad Fowler\"], Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide, 4 edition. Pragmatic Bookshelf, (July 7, 2013)")  
      end
    end
+   
+    context Lista do
+        before :each do
+            @refs = Lista.new
+        end
+    end
 end
