@@ -77,7 +77,7 @@ describe Bibliografia do
    end
    
     context Lista do
-        before :each do
+        before :all do
             @refs = Lista.new
             @libro1 = Referencia.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"], "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide", "(The Facets of Ruby)", "Pragmatic Bookshelf", "4 edition", "(July 7, 2013)", ["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"])
             @libro2 = Referencia.new("Scott Chacon", "Pro Git 2009th Edition", "(Pro)", "Apress", "2009 edition", "(August 27, 2009)", ["ISBN-13: 978-1430218333", "ISBN-10: 1430218339"])
@@ -87,13 +87,15 @@ describe Bibliografia do
         end
         
         it 'Se puede insertar varios elementos' do
-            n = @refs.length
             @refs.push(@libro1)
             @refs.push(@libro2)
             @refs.push(@libro3)
             @refs.push(@libro4)
             @refs.push(@libro5)
-            expect(@refs.length == 0)
+        end
+        
+        it 'Existe un método para obtener la referencia formateada en una posicion de la lista' do
+          expect(@refs.getNodoDato(0).to_s).to eq("[\"Dave Thomas\", \"Andy Hunt\", \"Chad Fowler\"], Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide, 4 edition. Pragmatic Bookshelf, (July 7, 2013)")  
         end
     end
 end

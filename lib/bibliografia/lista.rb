@@ -56,10 +56,19 @@ class Lista
         end
         num
     end
-            
+    
+    def getNodoDato(index)
+        item = @head
+        for i in (0..index -1)
+            item = item.getSig
+        end
+        return item.getDato
+    end
 end
 
-l = Lista.new
-l.push(2)
-l.push(3)
-puts l.length
+#l = Lista.new
+#l.push(2)
+#l.push(3)
+#puts l.length
+#puts l.getNodoDato(0)
+#puts l.getNodoDato(1)
