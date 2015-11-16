@@ -76,6 +76,18 @@ describe Bibliografia do
      end
    end
    
+   context Nodo do
+      before :each do
+        @Lista = Lista.new
+        @Lista.unshift(1)
+        @Lista.unshift(2)
+      end
+
+      it 'Debe existir un Nodo de la lista con sus datos y su siguiente' do
+        expect(@Lista.head.getDato != nil && @Lista.head.getSig != nil)
+      end
+    end
+   
     context Lista do
         before :all do
             @refs = Lista.new
@@ -96,6 +108,14 @@ describe Bibliografia do
         
         it 'Existe un método para obtener la referencia formateada en una posicion de la lista' do
           expect(@refs.getNodoDato(0).to_s).to eq("[\"Dave Thomas\", \"Andy Hunt\", \"Chad Fowler\"], Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide, 4 edition. Pragmatic Bookshelf, (July 7, 2013)")  
+        end
+        
+        it 'Debe existir una lista con su cabeza' do
+            expect(@refs.head != nil)
+        end
+        
+        it 'Debe existir una lista con su cola' do
+            expect(@refrs.tail != nil)
         end
     end
 end
