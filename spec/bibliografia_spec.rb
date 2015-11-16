@@ -84,10 +84,15 @@ describe Bibliografia do
       end
 
       it 'Debe existir un Nodo de la lista con sus datos y su siguiente' do
-        expect(@Lista.head.getDato != nil && @Lista.head.getSig != nil)
+        expect(@Lista.head.dato != nil && @Lista.head.sig != nil)
       end
-    end
-   
+    
+    
+    
+      it 'Debe existir un Nodo de la lista con sus datos y su anterior' do
+        expect(@Lista.tail.dato != nil && @Lista.tail.ant != nil)
+      end
+   end
     context Lista do
         before :all do
             @refs = Lista.new
@@ -115,7 +120,7 @@ describe Bibliografia do
         end
         
         it 'Debe existir una lista con su cola' do
-            expect(@refrs.tail != nil)
+            expect(@refs.tail != nil)
         end
     end
 end

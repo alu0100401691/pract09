@@ -1,56 +1,62 @@
 
-Nodo = Struct.new(:dato, :sig) do
+Nodo = Struct.new(:dato, :sig, :ant) do
     
-    def initialize(dato, sig)
+    def initialize(dato, sig, ant)
         @dato = dato
         @sig = sig
+        @ant = ant
     end
     
-    def getSig
-        return @sig
+    def to_s
+        "#{@dato}"
     end
     
     def getDato
-        return @dato
-    end
-    
-    def next_(sig)
-        @sig = sig
+        @dato
     end
     
 end
 
 class Lista
-    attr_accessor :head
+    attr_accessor :tail, :head
     
     def initialize()
         @head = nil;
+        @tail = nil;
     end
     
+    #Metodo para insertar por delante
     def unshift(dato)
         primero = @head
-        @head = Nodo.new(dato,primero)
-    end
-    def push(dato)
-        last = @head
-        if last!= nil
-            while last.getSig != nil
-                last = last.getSig
-            end
-            last.next_(Nodo.new(dato,nil))
+        nodo = Nodo.new(dato,primero,nil)
+        if @head == nil
+            @tail = nodo
         else
-            @head = Nodo.new(dato,nil)
+            primero.ant = nodo
         end
+        @head = nodo
+
     end
-    
+    #Metodo para insertar por detras
+    def push(dato)
+        ultimo = @tail
+        nodo = Nodo.new(dato,nil,ultimo)
+        if @tail == nil
+            @head = nodo
+        else
+            ultimo.sig = nodo;
+        end
+        @tail = nodo
+    end
+    #Devuelve el numero de elemnentos de la lista
     def length
         if @head == nil
             num = 0
         else
             last = @head
             num = 1
-            while last.getSig != nil
-                last = last.getSig
+            while last.sig != nil
+                last = last.sig
                 num += 1
             end
         end
@@ -60,15 +66,34 @@ class Lista
     def getNodoDato(index)
         item = @head
         for i in (0..index -1)
-            item = item.getSig
+            item = item.sig
         end
         return item.getDato
+    end
+    
+    def visualiza
+        last = @head
+       
+        while last.sig != nil
+            puts last.to_s
+            last = last.sig
+        end
+        
+        puts last.to_s
+        
     end
 end
 
 #l = Lista.new
+#l.unshift(2)
+#l.unshift(3)
+#l.push(4)
+#l.push(5)
 #l.push(2)
 #l.push(3)
+#l.push(6)
 #puts l.length
-#puts l.getNodoDato(0)
-#puts l.getNodoDato(1)
+#l.visualiza
+
+#puts getNodoDato(1)
+
