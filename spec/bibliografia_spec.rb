@@ -170,12 +170,33 @@ describe Bibliografia do
             expect(@p.is_a?(Publicaciones)).to eq(true)
         end
         
-        it 'Es la clase Publicaciones' do
+        it 'Es la clase Revista' do
             expect(@p.class).to eq(Revista)
         end
         
-        it 'Es Instancia de Publicaciones' do
+        it 'Es Instancia de Revista' do
             expect(@p.instance_of?(Revista)).to eq(true)
+        end
+    end
+    
+context Periodico do
+        before :all do
+            @p = Periodico.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"], "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",  "Pragmatic Bookshelf","volumen 1","numero 2",1)
+        end
+        it 'Es herencia de Referencia' do
+            expect(@p.is_a?(Referencia)).to eq(true)
+        end
+            
+        it 'Es herencia de Publicaciones' do
+            expect(@p.is_a?(Publicaciones)).to eq(true)
+        end
+        
+        it 'Es la clase Periodico' do
+            expect(@p.class).to eq(Periodico)
+        end
+        
+        it 'Es Instancia de Periodico' do
+            expect(@p.instance_of?(Periodico)).to eq(true)
         end
     end
 end
