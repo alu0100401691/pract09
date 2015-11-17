@@ -1,43 +1,21 @@
 
 
-class Libro < Referencia
+class Publicaciones < Referencia
     
-        attr_reader  :serie, :editorial, :edicion, :fecha, :isbn
+        attr_reader  :nombre
       
-        def initialize(autores,titulo,serie = nil,editorial,edicion,fecha,isbn)
+        def initialize(autores,titulo,nombre)
               super(autores,titulo)
-              @serie = serie
-              @editorial = editorial
-              @edicion = edicion
-              @fecha = fecha
-              @isbn = isbn
+              @nombre = nombre
+     
         end
         
-        def getAutores
-            return @autores
-        end
-        def getTitulo
-            return @titulo
-        end
-        def getSerie
-            return @serie
-        end
-        def getEditorial
-            return @editorial
-        end
-        def getEdicion
-            return @edicion
-        end
-        def getFecha
-            return @fecha
-        end
-        
-        def getISBN
-            return @isbn
+        def getNombre
+            return @nombre
         end
         
         def to_s
-            out = super.to_s + "#{@edicion}" + ". " + "#{@editorial}" + ", " + "#{@fecha}"
+            out = super.to_s + "#{@nombre}" 
             return out
         end
         
