@@ -15,7 +15,7 @@ class Publicaciones < Referencia
         end
         
         def to_s
-            out = super.to_s + "#{@nombre}" 
+            out = super.to_s + "#{@nombre}"  + ", "
             return out
         end
         
