@@ -2,11 +2,10 @@
 
 class Libro < Referencia
     
-        attr_reader :autores, :titulo, :serie, :editorial, :edicion, :fecha, :isbn
+        attr_reader  :serie, :editorial, :edicion, :fecha, :isbn
       
         def initialize(autores,titulo,serie = nil,editorial,edicion,fecha,isbn)
-              @autores = autores
-              @titulo = titulo
+              super(autores,titulo)
               @serie = serie
               @editorial = editorial
               @edicion = edicion
@@ -38,8 +37,8 @@ class Libro < Referencia
         end
         
         def to_s
-            out = "#{@autores}" + ", " + "#{@titulo}" + ", " + "#{@edicion}" + ". " + "#{@editorial}" + ", " + "#{@fecha}"
+            out = super.to_s + "#{@edicion}" + ". " + "#{@editorial}" + ", " + "#{@fecha}"
             return out
         end
         
-    end
+end
