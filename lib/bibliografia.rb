@@ -5,7 +5,7 @@ require "bibliografia/lista"
 require "bibliografia/publicaciones"
 require "bibliografia/Revista"
 require "bibliografia/Periodico"
-
+require "bibliografia/Documentos"
 module Bibliografia
     
     

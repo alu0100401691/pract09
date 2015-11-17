@@ -179,7 +179,7 @@ describe Bibliografia do
         end
     end
     
-context Periodico do
+    context Periodico do
         before :all do
             @p = Periodico.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"], "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",  "Pragmatic Bookshelf","volumen 1","numero 2",1)
         end
@@ -197,6 +197,27 @@ context Periodico do
         
         it 'Es Instancia de Periodico' do
             expect(@p.instance_of?(Periodico)).to eq(true)
+        end
+    end
+    
+    context Documentos do
+        before :all do
+            @p = Documentos.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"], "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",  "Pragmatic Bookshelf","http://wololo")
+        end
+        it 'Es herencia de Referencia' do
+            expect(@p.is_a?(Referencia)).to eq(true)
+        end
+            
+        it 'Es herencia de Publicaciones' do
+            expect(@p.is_a?(Publicaciones)).to eq(true)
+        end
+        
+        it 'Es la clase Documento' do
+            expect(@p.class).to eq(Documentos)
+        end
+        
+        it 'Es Instancia de Documento' do
+            expect(@p.instance_of?(Documentos)).to eq(true)
         end
     end
 end
