@@ -2,9 +2,9 @@ require 'spec_helper'
 require 'bibliografia'
 
 describe Bibliografia do
-   context Referencia do
+   context Libro do
      before :each do
-        @libro1 = Referencia.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"], "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide", "(The Facets of Ruby)", "Pragmatic Bookshelf", "4 edition", "(July 7, 2013)", ["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"])
+        @libro1 = Libro.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"], "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide", "(The Facets of Ruby)", "Pragmatic Bookshelf", "4 edition", "(July 7, 2013)", ["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"])
      end
   
      it 'has a version number' do
@@ -122,5 +122,19 @@ describe Bibliografia do
         it 'Debe existir una lista con su cola' do
             expect(@refs.tail != nil)
         end
+    end
+    
+    context Libro do
+        before :all do
+            @libro = Libro.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"], "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide", "(The Facets of Ruby)", "Pragmatic Bookshelf", "4 edition", "(July 7, 2013)", ["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"])
+        end
+        it 'Es herencia de Referencia' do
+            expect(@libro.is_a? Referencia == true)
+        end
+        
+        it 'Es Instancia de Libro' do
+            expect(@libro.instance_of? Libro == true)
+        end
+    
     end
 end
