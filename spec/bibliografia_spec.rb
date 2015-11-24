@@ -122,6 +122,11 @@ describe Bibliografia do
         it 'Debe existir una lista con su cola' do
             expect(@refs.tail != nil)
         end
+        
+        it 'herencia de object' do
+            expect(@libro.is_a?(Object)).to eq(true)
+        end
+        
     end
     
     context Libro do
@@ -169,6 +174,8 @@ describe Bibliografia do
         it 'Es herencia de Publicaciones' do
             expect(@p.is_a?(Publicaciones)).to eq(true)
         end
+        
+        
         
         it 'Es la clase Revista' do
             expect(@p.class).to eq(Revista)
@@ -219,5 +226,17 @@ describe Bibliografia do
         it 'Es Instancia de Documento' do
             expect(@p.instance_of?(Documentos)).to eq(true)
         end
+    end
+    
+    context Comparable do
+        before :all do
+            @p = Documentos.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"], "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",  "Pragmatic Bookshelf","http://wololo")
+            @p2 = Documentos.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"], "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",  "Pragmatic Bookshelf","http://wololo")
+        end
+        
+        it 'Son iguales' do
+            expect(@p == @p2).to eq(true)
+        end
+        
     end
 end
