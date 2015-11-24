@@ -9,6 +9,19 @@ class Publicaciones < Referencia
               @nombre = nombre
      
         end
+        def ==(other)
+            if (super(other))
+                for i in (0..nombre.length)
+                    if (nombre[i] != other.nombre[i])
+                        return false
+                    end
+                end
+                return true
+            end
+            false
+            
+        
+        end
         
         def getNombre
             return @nombre

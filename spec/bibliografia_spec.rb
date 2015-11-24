@@ -232,10 +232,19 @@ describe Bibliografia do
         before :all do
             @p = Documentos.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"], "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",  "Pragmatic Bookshelf","http://wololo")
             @p2 = Documentos.new(["Dave Thomas", "Andy Hunt", "Chad Fowler"], "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",  "Pragmatic Bookshelf","http://wololo")
+            @p3 = Documentos.new(["Dave Thmas", "Andy Hunt", "Chad Fowler"], "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",  "Pragmatic Bookshelf","http://eyeyeye")
         end
         
-        it 'Son iguales' do
+        it 'Son iguales los documentos' do
             expect(@p == @p2).to eq(true)
+        end
+        
+        it 'No Son iguales los documentos' do
+            expect(@p2 == @p3).to eq(false)
+        end
+        
+        it 'Son Enumerables' do
+            expect(@p.map {|0|}).to eq("Dave Thomas")
         end
         
     end

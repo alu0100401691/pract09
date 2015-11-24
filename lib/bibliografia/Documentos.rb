@@ -9,6 +9,7 @@ class Documentos < Publicaciones
               @URL = url
      
         end
+        
 
         def getURL
             return @url

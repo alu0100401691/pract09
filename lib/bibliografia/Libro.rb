@@ -13,6 +13,19 @@ class Libro < Referencia
               @isbn = isbn
         end
         
+        def ==(other)
+            if (super(other))
+                for i in (0..fecha.length)
+                    if (fecha[i] != other.fecha[i])
+                        return false
+                    end
+                end
+                return true
+            end
+            false
+        
+        end
+        
         def getAutores
             return @autores
         end
