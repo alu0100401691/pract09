@@ -244,7 +244,7 @@ describe Bibliografia do
         end
         
         it 'Son Enumerables' do
-            expect(@p.map {|0|}).to eq("Dave Thomas")
+            expect(@p.select {|i| i == 0}).to eq("Dave Thomas")
         end
         
     end
