@@ -2,6 +2,7 @@
 
 class Referencia
         include Comparable
+        include Enumerable
     
         attr_accessor :autores, :titulo
       
@@ -39,6 +40,11 @@ class Referencia
         
         def to_s
          "#{@autores}" + ", " + "#{@titulo}" + ", "
+        end
+        
+        def each
+            yield @autores
+            yield @titulo
         end
         
 end
